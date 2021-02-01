@@ -59,3 +59,17 @@ function plusMinus(arr) {
 const plusMinusArray = [-4, 3, -9, 0, 4, 1]
 
 console.log(plusMinus(plusMinusArray));
+
+console.log('Stair case');
+
+function staircase(n) {
+  console.log('Inside function');
+  let arr = new Array(n).fill(' ');
+  console.log(arr.length);
+  for (let index = (arr.length); index > 0; index--) {
+    arr[index -1] = '#';
+    console.log(arr.join(''));
+  }
+}
+
+staircase(6);
