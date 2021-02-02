@@ -73,3 +73,19 @@ function staircase(n) {
 }
 
 staircase(6);
+
+
+console.log('Mini-Max Sum');
+
+function miniMaxSum(arr) {
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  const total = arr.reduce(reducer);
+  arr = arr.sort((a, b) => a - b);
+  const min = total - arr[arr.length - 1]
+  const max = total - arr[0]
+  console.log(`${min} ${max}`);
+}
+
+const minMaxArray = [5, 7, 1, 9, 3];
+
+miniMaxSum(minMaxArray);
