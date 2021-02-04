@@ -89,3 +89,23 @@ function miniMaxSum(arr) {
 const minMaxArray = [5, 7, 1, 9, 3];
 
 miniMaxSum(minMaxArray);
+
+console.log('Birthday Cake Candles');
+
+function birthdayCakeCandles(candles) {
+  candles = candles.sort((a, b) => a - b);
+  const tallestCandle = candles[candles.length - 1];
+  if (tallestCandle === candles[0]) { return candles.length } 
+  let candlesQuantity = 1;
+  for(let i = (candles.length - 2); i >= 0; i--) {
+    if(tallestCandle === candles[i]) {
+      candlesQuantity++;
+    } else {
+      return candlesQuantity;
+    }
+  }
+}
+
+const cakeCandles = [ 3, 2, 1, 3];
+
+console.log(birthdayCakeCandles(cakeCandles));
