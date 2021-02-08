@@ -46,6 +46,8 @@ function plusMinus(arr) {
       zeros++;
     }
   });
+// no necesito var Zeros
+// el ro
 
   const ratios = [
     (positives/arr.length).toPrecision(arr.length), 
@@ -63,9 +65,7 @@ console.log(plusMinus(plusMinusArray));
 console.log('Stair case');
 
 function staircase(n) {
-  console.log('Inside function');
   let arr = new Array(n).fill(' ');
-  console.log(arr.length);
   for (let index = (arr.length); index > 0; index--) {
     arr[index -1] = '#';
     console.log(arr.join(''));
@@ -109,3 +109,22 @@ function birthdayCakeCandles(candles) {
 const cakeCandles = [ 3, 2, 1, 3];
 
 console.log(birthdayCakeCandles(cakeCandles));
+
+
+console.log('Time Convertion');
+
+function timeConversion(s) {
+  const hour = s.slice(0, 2);
+  const meridian = s.slice(8);
+  const minSeg = s.slice(2, 8);
+
+  if((hour <= 11 && meridian === 'AM') || (Number(hour) === 12 && meridian === 'PM')) {
+    return (`${hour}${minSeg}`);
+  }
+  if((hour <= 11 && meridian === 'PM')) {
+    return (`${Number(hour) + 12}${minSeg}`);
+  }
+  return (`00${minSeg}`);
+}
+
+console.log(timeConversion('12:45:54PM'));
