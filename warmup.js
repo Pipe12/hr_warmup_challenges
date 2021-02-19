@@ -128,3 +128,16 @@ function timeConversion(s) {
 }
 
 console.log(timeConversion('12:45:54PM'));
+
+console.log('Number line jumps');
+
+function kangaroo(x1, v1, x2, v2) {
+  let factor;
+  x1 < x2 ? factor = 1 : factor = -1;
+  const jumps = factor * ((x1 - x2) / (v2 - v1));
+  console.log(jumps);
+  if (jumps > 0 && Number.isInteger(jumps)) { return 'YES' } 
+  return 'NO'; 
+}
+
+console.log(kangaroo(21, 6, 47, 3));
