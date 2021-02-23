@@ -165,3 +165,16 @@ function breakingRecords(scores) {
 }
 
 console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]));
+
+console.log('Birthday')
+
+function birthday(s, d, m) {
+  let possibleAnswers = 0;
+  for (let index = 0; (index <= s.length - m); index++) {
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    if(s.slice(index, index + m).reduce(reducer) === d) { possibleAnswers++ }
+  }
+  return (possibleAnswers);
+}
+
+console.log(birthday([1, 2, 1, 3, 2], 3, 2))
