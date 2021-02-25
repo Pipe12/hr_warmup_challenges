@@ -182,23 +182,47 @@ console.log(birthday([1, 2, 1, 3, 2], 3, 2));
 console.log('Divisible Sum Pairs');
 
 function divisibleSumPairs(n, k, ar) {
-  let count = 0;
-  ar = ar.sort((a, b) => a - b);
-  // console.log(ar)
+  let counter = 0;
   for (let i = 0; i < n - 1; i++) {
     for (let j = 1; j < n; j++) {
-      if( (ar[i] < ar[j]) && ( (ar[i] +  ar[j]) % k) === 0) {
-        // console.log(`${ar[i]} + ${ar[j]} = ${ar[i] + ar[j]}`)
-        count++;
+      if( (i < j) && ( (ar[i] +  ar[j]) % k) === 0) {
+        counter++;
       }
     }
   }
-  return count;
+  return counter;
 }
 
-let divisibleSumPairsArr = '64 95 76 35 83 2 97 21 26 6 20 98 100 79 84 40 62 62 20 9 87 40 47 38 12 10 92 68 4 34 98 53 15 4 9 4 77 60 36 49 10 73 56 43 31 6 18 91 53 73 28 90 79 3 72 64 29 89 95 28 23 7 54 23 34 90 100 73 77 98 95 89 22 42 98 39 92 25 44 40 7 100 62 28 25 21 64 55 84 54 99 14 5 51 34 66 4 5 49 56'.split(' ');
+let divisibleSumPairsArr = '43 95 51 55 40 86 65 81 51 20 47 50 65 53 23 78 75 75 47 73 25 27 14 8 26 58 95 28 3 23 48 69 26 3 73 52 34 7 40 33 56 98 71 29 70 71 28 12 18 49 19 25 2 18 15 41 51 42 46 19 98 56 54 98 72 25 16 49 34 99 48 93 64 44 50 91 44 17 63 27 3 65 75 19 68 30 43 37 72 54 82 92 37 52 72 62 3 88 82 71'.split(' ');
 divisibleSumPairsArr = divisibleSumPairsArr.map((numStr) => parseInt(numStr));
-let divisibleSumPairsFactor = 21;
+let divisibleSumPairsFactor = 22;
 let divisibleSumPairsArrLength = divisibleSumPairsArr.length;
 
 console.log(divisibleSumPairs(divisibleSumPairsArrLength, divisibleSumPairsFactor, divisibleSumPairsArr));
+
+
+
+console.log('Same characters in arrow')
+
+function strToArray(str) {
+  let array = str.split('')
+  return array;
+}
+
+function charactersInArrow(str) {
+  const array = strToArray(str)
+  let getTimesRepeat = 1;
+  let characterQuantity = [];
+
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === array[index + 1] && index < array.length - 1) {
+      getTimesRepeat++;
+    } else {
+      characterQuantity.push([array[index], getTimesRepeat]);
+      getTimesRepeat = 1;
+    }
+  }
+  console.log(characterQuantity);
+}
+
+charactersInArrow('aaaabbbcca');
