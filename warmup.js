@@ -226,3 +226,26 @@ function charactersInArrow(str) {
 }
 
 charactersInArrow('aaaabbbcca');
+
+console.log('Migratory Birds')
+
+function migratoryBirds(arr) {
+  let quantity = 0;
+  let type = 0;
+  arr = arr.sort((a, b) => a - b);
+  let bridsQuantity = new Array(arr[arr.length - 1]).fill(0);
+  
+  for (let index = 0; index < arr.length; index++) {
+    bridsQuantity[ arr[index] - 1 ]++;
+    if(quantity < bridsQuantity[ arr[index] -1 ]) {
+      quantity = bridsQuantity[arr[index] - 1];
+      type = arr[index];
+    }
+  }
+  console.log(`type= ${type} quantity= ${quantity}`);
+}
+
+let birds = [1, 1, 1, 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
+
+migratoryBirds(birds);
+
