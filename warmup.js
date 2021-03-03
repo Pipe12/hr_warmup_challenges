@@ -276,3 +276,25 @@ console.log(dayOfProgrammer(2017));
 console.log(dayOfProgrammer(2016));
 console.log(dayOfProgrammer(1800));
 console.log(dayOfProgrammer(1918));
+
+
+console.log('Bill Division');
+
+function bonAppetit(bill, k, b) {
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+  const billSummation = bill.reduce(reducer);
+  const partOfAnna = (billSummation - bill[k]) / 2;
+  const difference = b - partOfAnna;
+  if(difference === 0) {
+    return 'Bon Appetit'
+  } else { return difference }
+}
+
+const k1 = 1;
+const bill1 = [3, 10, 2, 9];
+const b1 = 12;
+
+const b2 = 7;
+
+console.log(bonAppetit(bill1, k1, b1));
+console.log(bonAppetit(bill1, k1, b2));
