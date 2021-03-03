@@ -249,3 +249,30 @@ let birds = [1, 1, 1, 1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4];
 
 migratoryBirds(birds);
 
+console.log('Day Of Programmer');
+
+function dayOfProgrammer(year) {
+  const leapYear = `12.09.${year}`;
+  const normalYear = `13.09.${year}`;
+
+  if (year > 1918) {
+    if (((year % 4 === 0) && !(year % 100 === 0)) || (year % 400 === 0)) {
+      return leapYear;
+    } else {
+      return normalYear;
+    }
+  }
+  if (year < 1918) {
+    if (year % 4 === 0) {
+      return leapYear;
+    } else {
+      return normalYear;
+    }  
+  }
+  return `26.09.${year}`;
+}
+
+console.log(dayOfProgrammer(2017));
+console.log(dayOfProgrammer(2016));
+console.log(dayOfProgrammer(1800));
+console.log(dayOfProgrammer(1918));
