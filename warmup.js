@@ -298,3 +298,29 @@ const b2 = 7;
 
 console.log(bonAppetit(bill1, k1, b1));
 console.log(bonAppetit(bill1, k1, b2));
+
+console.log('Sales by match');
+
+function sockMerchant(n, ar) {
+  let colorsQuantity = 1;
+  let pairs = 0;
+  ar = ar.sort((a, b) => a - b);
+  for (let index = 0; index < n; index++) {
+    if(ar[index] === ar[index + 1]) {
+      colorsQuantity++;
+    } else {
+      pairs = pairs + Math.floor(colorsQuantity / 2);
+      colorsQuantity = 1;
+    }
+  }
+  return pairs;
+}
+
+const colorArrayOne = [1, 1, 3, 1, 2, 1, 3, 3, 3, 3];
+const colorArrayTwo = [10, 20, 20, 10, 10, 30, 50, 10, 20];
+
+const colorArrayLengthOne = colorArrayOne.length;
+const colorArrayLengthTwo = colorArrayTwo.length;
+
+console.log(sockMerchant(colorArrayLengthOne, colorArrayOne));
+console.log(sockMerchant(colorArrayLengthTwo, colorArrayTwo));
