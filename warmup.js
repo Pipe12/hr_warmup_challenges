@@ -324,3 +324,20 @@ const colorArrayLengthTwo = colorArrayTwo.length;
 
 console.log(sockMerchant(colorArrayLengthOne, colorArrayOne));
 console.log(sockMerchant(colorArrayLengthTwo, colorArrayTwo));
+
+
+console.log('Drawing book');
+
+function pageCount(n, p) {
+  let turnRear = 0;
+  if(n % 2 === 0 && p % 2 !== 0) { 
+    turnRear = Math.floor((n - p) / 2) + 1;
+  } else {
+    turnRear = Math.floor((n - p) / 2);
+  }
+  const turnFront = Math.floor(p / 2);
+  if(turnFront < turnRear) { return turnFront }
+  return turnRear;
+}
+
+console.log(pageCount(6, 5));
