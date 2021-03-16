@@ -341,3 +341,29 @@ function pageCount(n, p) {
 }
 
 console.log(pageCount(6, 5));
+
+
+console.log('Counting Valleys');
+
+function countingValleys(steps, path) {
+  let seaLevel = 0;
+  let quantityOfValleys = 0;
+
+  for (let index = 0; index < steps; index++) {
+    if (path[index] === 'D') {
+      seaLevel--;
+    } else {
+      seaLevel++;
+    }
+    if (path[index] === 'U' && seaLevel === 0) {
+      quantityOfValleys++;
+    }
+  }
+  return quantityOfValleys;
+}
+
+const pathOne = 'DUDDDUUDUU';
+const pathTwo = 'UDDDUUUUDDDU';
+
+console.log(countingValleys(pathOne.length, pathOne));
+console.log(countingValleys(pathTwo.length, pathTwo));
