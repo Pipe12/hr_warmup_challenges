@@ -410,3 +410,22 @@ const drivesOne = [5, 2, 8, 14];
 
 console.log(getMoneySpent(keyboardsOne, drivesOne, budgetOne));
 
+console.log('Cats and Mouse');
+
+function catAndMouse(x, y, z) {
+  const distCatA = Math.abs(x - z);
+  const distCatB = Math.abs(y - z);
+
+  if (distCatA < distCatB) {
+    console.log('Cat A');
+  } else if(distCatB < distCatA) {
+    console.log('Cat B'); 
+  } else {
+    console.log('Mouse C');
+  }
+}
+
+catAndMouse(1, 2, 3);
+catAndMouse(1, 3, 2);
+
+
