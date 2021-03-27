@@ -367,3 +367,46 @@ const pathTwo = 'UDDDUUUUDDDU';
 
 console.log(countingValleys(pathOne.length, pathOne));
 console.log(countingValleys(pathTwo.length, pathTwo));
+
+console.log('Electronics shop')
+
+function getMoneySpent(keyboards, drives, b) {
+  const sortArr = (arr) => arr.sort((a, b) => b - a);
+  keyboards = sortArr(keyboards);
+  drives = sortArr(drives);
+
+  const getPointer = (array) => {
+    for (let index = 0; index < array.length; index++) {
+      console.log(index);
+      if(array[index] < b) {
+        return index;
+      }
+    }
+    return Infinity;
+  }  
+
+  const keyboardsPointer = getPointer(keyboards);
+  const drivesPointer = getPointer(drives);
+
+  if(keyboardsPointer === Infinity || drivesPointer === Infinity) {
+    return -1;
+  }
+
+  let maxQuantity = -1;
+
+  for (let i = keyboardsPointer; i < keyboards.length; i++) {
+    for (let j= drivesPointer; j < drives.length; j++) {
+      if(maxQuantity < keyboards[i] + drives[j] && keyboards[i] + drives[j] <= b) {
+        maxQuantity = keyboards[i] + drives[j]
+      }
+    }
+  }
+  return maxQuantity;
+}
+
+const budgetOne = 10;
+const keyboardsOne = [3, 1, 12];
+const drivesOne = [5, 2, 8, 14];
+
+console.log(getMoneySpent(keyboardsOne, drivesOne, budgetOne));
+
