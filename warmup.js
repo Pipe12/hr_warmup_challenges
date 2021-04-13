@@ -428,4 +428,56 @@ function catAndMouse(x, y, z) {
 catAndMouse(1, 2, 3);
 catAndMouse(1, 3, 2);
 
+console.log('Apple and Orange');
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  let fruitCounter = 0;
+
+  function SumFruitsInTheHouse(treePosition, fruits) {
+    for (let index = 0; index < fruits.length; index++) {
+      console.log((fruits[index] + treePosition));
+      if((fruits[index] + treePosition) >= s && (fruits[index] + treePosition) <= t) {
+        fruitCounter++;
+      }
+    }
+    fruitCounter = 0;
+  }  
+
+  SumFruitsInTheHouse(a, apples);
+  SumFruitsInTheHouse(b, oranges);
+}
+
+countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);
+
+
+// console.log('Formiing Magic Square');
+
+// function formingMagicSquare(s) {
+//   let cost = 0;
+
+//   function positveSubtraction(a, b) {
+//     let result;
+//     if(a > b) {
+//       result = a - b;
+//     } else {
+//       result = b - a;
+//     }
+//     return result;
+//   }
+
+//   if(s[1][1] !== 5) {
+//     cost = cost + positveSubtraction(s[1][1], 5)
+//   }
+
+//   cost = cost + positveSubtraction((s[0][0] + s[2][2]), 10);
+//   cost = cost + positveSubtraction((s[0][1] + s[2][1]), 10);
+//   cost = cost + positveSubtraction((s[0][2] + s[2][0]), 10);
+//   cost = cost + positveSubtraction((s[1][0] + s[1][2]), 10);
+
+//   return(cost);
+// }
+
+// const magicSquare = [ [4, 8, 2], [4, 5, 7], [6, 1, 6] ];
+// formingMagicSquare(magicSquare);
+
 
