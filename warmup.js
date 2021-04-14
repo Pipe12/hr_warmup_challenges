@@ -435,7 +435,6 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 
   function SumFruitsInTheHouse(treePosition, fruits) {
     for (let index = 0; index < fruits.length; index++) {
-      console.log((fruits[index] + treePosition));
       if((fruits[index] + treePosition) >= s && (fruits[index] + treePosition) <= t) {
         fruitCounter++;
       }
@@ -449,8 +448,38 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 
 countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);
 
+console.log('Between Two Sets')
 
-// console.log('Formiing Magic Square');
+function getTotalX(a, b) {
+  a = a.sort((a, b) => a - b);
+  b = b.sort((a, b) => a - b);
+
+  let factors = 0;
+  for (let i = a[a.length - 1]; i <= b[0]; i++) {
+    let isFactor = true;
+    
+    let j = 0;
+    while (j < a.length && isFactor) {
+      if (i % a[j] !== 0) { isFactor = false}
+      j++
+    }
+
+    j = 0;
+    while (j < b.length && isFactor) {
+      if (b[j] % i !== 0) { isFactor = false }
+      j++
+    }
+    if(isFactor){factors++;}
+  }
+  console.log(factors);
+}
+
+const firstSet = [2]
+const secoundSet = [20, 30, 12]
+
+getTotalX(firstSet, secoundSet);
+
+// console.log('Forming Magic Square');
 
 // function formingMagicSquare(s) {
 //   let cost = 0;
