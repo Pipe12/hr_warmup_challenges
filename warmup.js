@@ -479,34 +479,45 @@ const secoundSet = [20, 30, 12]
 
 getTotalX(firstSet, secoundSet);
 
-// console.log('Forming Magic Square');
+console.log('Forming Magic Square');
 
-// function formingMagicSquare(s) {
-//   let cost = 0;
+function formingMagicSquare(s) {
+  
+  let cost = Infinity;
+  let currentCost;
 
-//   function positveSubtraction(a, b) {
-//     let result;
-//     if(a > b) {
-//       result = a - b;
-//     } else {
-//       result = b - a;
-//     }
-//     return result;
-//   }
+  const posibleMagicSqueres = [
+    [ [8, 3, 4], [1, 5, 9], [6, 7, 2]],
+    [ [6, 7, 2], [1, 5, 9], [8, 3, 4]],
+    [ [6, 1, 8], [7, 5, 3], [2, 9, 4]],
+    [ [2, 9, 4], [7, 5, 3], [6, 1, 8]],
+    [ [2, 7, 6], [9, 5, 1], [4, 3, 8]],
+    [ [4, 3, 8], [9, 5, 1], [2, 7, 6]],
+    [ [4, 9, 2], [3, 5, 7], [8, 1, 6]],
+    [ [8, 1, 6], [3, 5, 7], [4, 9, 2]]
+  ];
 
-//   if(s[1][1] !== 5) {
-//     cost = cost + positveSubtraction(s[1][1], 5)
-//   }
+  posibleMagicSqueres.forEach((squere) => {
+    currentCost = (
+      Math.abs(squere[0][0] - s[0][0]) +
+      Math.abs(squere[0][1] - s[0][1]) +
+      Math.abs(squere[0][2] - s[0][2]) +
+      Math.abs(squere[1][0] - s[1][0]) +
+      Math.abs(squere[1][1] - s[1][1]) +
+      Math.abs(squere[1][2] - s[1][2]) +
+      Math.abs(squere[2][0] - s[2][0]) +
+      Math.abs(squere[2][1] - s[2][1]) +
+      Math.abs(squere[2][2] - s[2][2])
+      );
 
-//   cost = cost + positveSubtraction((s[0][0] + s[2][2]), 10);
-//   cost = cost + positveSubtraction((s[0][1] + s[2][1]), 10);
-//   cost = cost + positveSubtraction((s[0][2] + s[2][0]), 10);
-//   cost = cost + positveSubtraction((s[1][0] + s[1][2]), 10);
+      if (currentCost < cost) {
+        cost = currentCost;
+      }
+  });
+  return(cost);
+}
 
-//   return(cost);
-// }
-
-// const magicSquare = [ [4, 8, 2], [4, 5, 7], [6, 1, 6] ];
-// formingMagicSquare(magicSquare);
+const magicSquare = [ [4, 8, 2], [4, 5, 7], [6, 1, 6] ];
+formingMagicSquare(magicSquare);
 
 
